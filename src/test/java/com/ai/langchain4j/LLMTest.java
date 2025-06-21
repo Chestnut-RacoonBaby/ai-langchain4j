@@ -2,6 +2,7 @@ package com.ai.langchain4j;
 
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -25,6 +26,15 @@ public class LLMTest {
         // 向模型提问
         String answer = model.chat("你知道 彬彬有氧运动 这个博主吗？他运动的有效过吗？");
         // 输出结果
+        System.out.println(answer);
+    }
+
+    @Autowired
+    private OpenAiChatModel openAiChatModel;
+
+    @Test
+    public void testSpringBoot() {
+        String answer = openAiChatModel.chat("我是谁?");
         System.out.println(answer);
     }
 }
