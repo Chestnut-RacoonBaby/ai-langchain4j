@@ -46,9 +46,6 @@ public class LLMTest {
     @Autowired
     private OllamaChatModel ollamaChatModel;
 
-    @Autowired
-    private QwenChatModel qwenChatModel;
-
     @Test
     public void testSpringBoot() {
 //        String answer = openAiChatModel.chat("我是谁?");
@@ -59,9 +56,19 @@ public class LLMTest {
 
 //        String answer3 = ollamaChatModel.chat("我是谁?");
 //        System.out.println(answer3);
+    }
 
-        String answer4 = qwenChatModel.chat("我是谁?");
-        System.out.println(answer4);
+    /**
+     * 通义千问大模型
+     */
+    @Autowired
+    private QwenChatModel qwenChatModel;
+
+    @Test
+    private void testDashScopeQwen() {
+        // 向模型提问
+        String answer = qwenChatModel.chat("你是谁?");
+        System.out.println(answer);
     }
 
     @Test
