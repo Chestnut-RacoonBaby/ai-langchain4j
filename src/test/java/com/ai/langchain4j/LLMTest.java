@@ -1,5 +1,6 @@
 package com.ai.langchain4j;
 
+import dev.langchain4j.community.model.dashscope.QwenChatModel;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
@@ -42,6 +43,9 @@ public class LLMTest {
     @Autowired
     private OllamaChatModel ollamaChatModel;
 
+    @Autowired
+    private QwenChatModel qwenChatModel;
+
     @Test
     public void testSpringBoot() {
 //        String answer = openAiChatModel.chat("我是谁?");
@@ -50,7 +54,10 @@ public class LLMTest {
 //        String answer2 = chatLanguageModel.chat("我是谁?");
 //        System.out.println(answer2);
 
-        String answer3 = ollamaChatModel.chat("我是谁?");
-        System.out.println(answer3);
+//        String answer3 = ollamaChatModel.chat("我是谁?");
+//        System.out.println(answer3);
+
+        String answer4 = qwenChatModel.chat("我是谁?");
+        System.out.println(answer4);
     }
 }
