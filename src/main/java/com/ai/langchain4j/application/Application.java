@@ -1,4 +1,4 @@
-package com.ai.langchain4j;
+package com.ai.langchain4j.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
