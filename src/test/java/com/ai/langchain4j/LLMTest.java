@@ -43,9 +43,6 @@ public class LLMTest {
     @Autowired
     private ChatLanguageModel chatLanguageModel;
 
-    @Autowired
-    private OllamaChatModel ollamaChatModel;
-
     @Test
     public void testSpringBoot() {
 //        String answer = openAiChatModel.chat("我是谁?");
@@ -53,9 +50,19 @@ public class LLMTest {
 
 //        String answer2 = chatLanguageModel.chat("我是谁?");
 //        System.out.println(answer2);
+    }
 
-//        String answer3 = ollamaChatModel.chat("我是谁?");
-//        System.out.println(answer3);
+
+    /**
+     * ollama
+      */
+    @Autowired
+    private OllamaChatModel ollamaChatModel;
+
+    @Test
+    private void testOllama() {
+        String answer = ollamaChatModel.chat("我是谁?");
+        System.out.println(answer);
     }
 
     /**
