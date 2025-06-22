@@ -1,9 +1,12 @@
 package com.ai.langchain4j;
 
 import dev.langchain4j.community.model.dashscope.QwenChatModel;
+import dev.langchain4j.community.model.dashscope.WanxImageModel;
+import dev.langchain4j.data.image.Image;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+import dev.langchain4j.model.output.Response;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -59,5 +62,16 @@ public class LLMTest {
 
         String answer4 = qwenChatModel.chat("我是谁?");
         System.out.println(answer4);
+    }
+
+    @Test
+    public void testTongyiWanxiang(){
+        WanxImageModel wanxImageModel = WanxImageModel.builder()
+                .modelName("wanx2.1-t2i-plus")
+                .apiKey(System.getenv("BAILIAN_API_KEY"))
+                .build();
+        Response<Image> imageResponse = wanxImageModel.generate("一个笑脸的猫");
+        // https://dashscope-result-wlcb-acdr-1.oss-cn-wulanchabu-acdr-1.aliyuncs.com/1d/b8/20250622/87e37dbe/e4ad2522-65a2-445b-a038-4f85ef3448352849665775.png?Expires=1750663399&OSSAccessKeyId=LTAI5tKPD3TMqf2Lna1fASuh&Signature=YDLEl%2FuQDifztR2cgZtJ7xKrOCY%3D
+        System.out.println(imageResponse.content().url());
     }
 }
