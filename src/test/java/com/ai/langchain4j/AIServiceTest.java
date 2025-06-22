@@ -25,4 +25,14 @@ public class AIServiceTest {
         String answer = assistant.chat("请给我一段自我介绍");
         System.out.println(answer);
     }
+
+    @Autowired
+    private Assistant assistant;
+
+    @Test
+    public void testChat2() {
+        // 使用注解直接注入大语言模型，不需要再创建对象
+        String answer = assistant.chat("请给我出一个千岛湖游玩攻略");
+        System.out.println(answer);
+    }
 }
