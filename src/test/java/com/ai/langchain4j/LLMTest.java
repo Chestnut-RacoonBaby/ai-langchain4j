@@ -1,12 +1,15 @@
 package com.ai.langchain4j;
 
 import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.ollama.OllamaChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
+ * 大语言模型测试类
+ *
  * @author: qiaohaojie
  * @date: 2025-06-21 19:11:57
  */
@@ -36,12 +39,18 @@ public class LLMTest {
     @Autowired
     private ChatLanguageModel chatLanguageModel;
 
+    @Autowired
+    private OllamaChatModel ollamaChatModel;
+
     @Test
     public void testSpringBoot() {
 //        String answer = openAiChatModel.chat("我是谁?");
 //        System.out.println(answer);
 
-        String answer2 = chatLanguageModel.chat("我是谁?");
-        System.out.println(answer2);
+//        String answer2 = chatLanguageModel.chat("我是谁?");
+//        System.out.println(answer2);
+
+        String answer3 = ollamaChatModel.chat("我是谁?");
+        System.out.println(answer3);
     }
 }
