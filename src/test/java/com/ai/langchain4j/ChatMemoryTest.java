@@ -2,6 +2,7 @@ package com.ai.langchain4j;
 
 import com.ai.langchain4j.assistant.Assistant;
 import com.ai.langchain4j.assistant.MemoryChatAssistant;
+import com.ai.langchain4j.assistant.SeparateChatAssistant;
 import dev.langchain4j.community.model.dashscope.QwenChatModel;
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.UserMessage;
@@ -90,5 +91,21 @@ public class ChatMemoryTest {
         String answer2 = memoryChatAssistant.chat("我是谁");
         // 你是环环。有什么我可以帮你的吗？或者你想聊些什么？
         System.out.println(answer2);
+    }
+
+    @Autowired
+    private SeparateChatAssistant separateChatAssistant;
+
+    @Test
+    public void testChatMemory5() {
+        String answer1 = separateChatAssistant.chat(1, "我是环环");
+        // 你好，环环！很高兴见到你。有什么我可以帮助你的吗？或者你想聊些什么呢？
+        System.out.println(answer1);
+        String answer2 = separateChatAssistant.chat(1, "我是谁");
+        // 你刚刚告诉我，你是环环。如果你是在问更深层次的身份或角色信息，可以给我更多的背景或者你想了解的具体方面，我会尽力帮助你！
+        System.out.println(answer2);
+        String answer3 = separateChatAssistant.chat(2, "我是谁？");
+        // 您好！您是在询问您的身份，但从您的问题中我无法直接得知您是谁。如果您是想通过这个问题了解自己，可能需要提供更多的信息或者换个角度提问。例如，您可以告诉我一些关于您的事情，比如兴趣爱好、工作或者是您想要了解的特定方面，这样我或许能够更好地帮助到您。如果这是一个哲学意义上的提问，那它就涉及到自我认知和个人身份的问题了，每个人对于“我是谁”都有不同的理解和答案。希望我的回答对您有所帮助！如果有更具体的内容想要探讨，请随时告诉我。
+        System.out.println(answer3);
     }
 }
