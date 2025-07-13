@@ -1,6 +1,7 @@
 package com.ai.langchain4j;
 
 import com.ai.langchain4j.assistant.Assistant;
+import com.ai.langchain4j.assistant.MemoryChatAssistant;
 import dev.langchain4j.community.model.dashscope.QwenChatModel;
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.UserMessage;
@@ -75,6 +76,19 @@ public class ChatMemoryTest {
         System.out.println(answer1);
         String answer2 = assistant.chat("我是谁？");
         // 你是环环。如果你还有其他问题或需要进一步的帮助，请告诉我！
+        System.out.println(answer2);
+    }
+
+    @Autowired
+    private MemoryChatAssistant memoryChatAssistant;
+
+    @Test
+    public void testChatMemory4() {
+        String answer1 = memoryChatAssistant.chat("我是环环");
+        // 你好，环环！很高兴见到你。有什么我可以帮助你的吗？如果你有任何问题或需要讨论某些话题，随时告诉我哦。
+        System.out.println(answer1);
+        String answer2 = memoryChatAssistant.chat("我是谁");
+        // 你是环环。有什么我可以帮你的吗？或者你想聊些什么？
         System.out.println(answer2);
     }
 }
