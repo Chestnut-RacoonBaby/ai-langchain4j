@@ -26,9 +26,11 @@ public class ChatMessages {
     private ObjectId messageId;
 //    private Long messageId;
 
+    private String memoryId;
+
     /**
      * 存储当前聊天记录列表的json字符串
-     * 包含：客户端发送给大模型的 userMessage、大模型响应给客户端的 assistantMessage
+     * 包含：客户端发送给大模型的 UserMessage、大模型响应给客户端的 AiMessage
      */
     private String content;
 }
