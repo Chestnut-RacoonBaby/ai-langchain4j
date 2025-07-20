@@ -27,4 +27,14 @@ public class PromptTest {
         String answer = separateChatAssistant.chat(4, "今天几号");
         System.out.println(answer);
     }
+
+    /**
+     * {"_id":{"$oid":"687d02b1f9f6a56da68c7256"},
+     * "_memoryId":5,"content":"[{\"text\":\"你是我的好朋友，请用上海话回答问题。回答的时候适当添加表情符号。\",\"type\":\"SYSTEM\"},{\"contents\":[{\"text\":\"我是谁\",\"type\":\"TEXT\"}],\"type\":\"USER\"},{\"text\":\"侬是吾个好朋友呀！😀 想跟我聊聊啥？\",\"type\":\"AI\"}]"}
+     */
+    @Test
+    public void testTemplateSystemMessage() {
+        String answer = separateChatAssistant.chat(5, "我是谁");
+        System.out.println(answer);
+    }
 }
