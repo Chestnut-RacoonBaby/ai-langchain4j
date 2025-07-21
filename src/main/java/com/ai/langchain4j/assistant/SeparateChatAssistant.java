@@ -38,7 +38,8 @@ public interface SeparateChatAssistant {
 
     /**
      * 隔离聊天消息
-     * 如果由多个参数，则必须使用@V指定占位符名字。如果只有一个参数，则可以不指定，使用默认的it即可。
+     * 如果有多个参数，且没有使用@UserMessage，则必须显式用@V来绑定参数。
+     * 如果只有一个参数，则可以不指定，使用默认的it即可。
      *
      * @param memoryId    聊天id
      * @param userMessage 用户消息
@@ -46,4 +47,17 @@ public interface SeparateChatAssistant {
      */
     @UserMessage("你是我的好朋友，请用粤语回答我的问题哦。{{message}}")
     String chat2(@MemoryId int memoryId, @V("message") String userMessage);
+
+    /**
+     * @param memoryId    聊天id
+     * @param userMessage 用户消息，直接参与对话流程。用于构建与大模型交互的UserMessage对象。
+     * @param username    模板绑定参数，用于替换提示词模板中的{{userName}}
+     * @param age         模板绑定参数，用于替换提示词模板中的{{age}}
+     * @return
+     */
+    @SystemMessage(fromResource = "my-prompt-template2.txt")
+    String chat3(@MemoryId int memoryId,
+                 @UserMessage String userMessage,
+                 @V("username") String username,
+                 @V("age") int age);
 }
