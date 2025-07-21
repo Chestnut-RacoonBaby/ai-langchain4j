@@ -19,7 +19,8 @@ import dev.langchain4j.service.spring.AiServiceWiringMode;
 public interface MemoryChatAssistant {
 
     /**
-     * 用户提示词，it表示唯一的参数的占位符
+     * 用户提示词，it表示唯一的参数的占位符。
+     * 注意：必须是it，否则就报错。
      *
      * @param userMessage userMessage
      * @return
