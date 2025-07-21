@@ -1,12 +1,13 @@
 package com.ai.langchain4j;
 
+import com.ai.langchain4j.assistant.MemoryChatAssistant;
 import com.ai.langchain4j.assistant.SeparateChatAssistant;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * 系统提示词测试
+ * 提示词测试
  *
  * @author: qiaohaojie
  * @date: 2025-07-20 21:59:26
@@ -36,5 +37,20 @@ public class PromptTest {
     public void testTemplateSystemMessage() {
         String answer = separateChatAssistant.chat(5, "我是谁");
         System.out.println(answer);
+    }
+
+    @Autowired
+    private MemoryChatAssistant memoryChatAssistant;
+
+    @Test
+    public void testUserMessage() {
+        String answer1 = memoryChatAssistant.chat("我是环环");
+        System.out.println(answer1);
+
+        String answer2 = memoryChatAssistant.chat("我18了");
+        System.out.println(answer2);
+
+        String answer3 = memoryChatAssistant.chat("你叫啥");
+        System.out.println(answer3);
     }
 }
