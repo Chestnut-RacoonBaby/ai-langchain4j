@@ -65,4 +65,13 @@ public class PromptTest {
         String answer3 = memoryChatAssistant.chat2("很高兴遇见你，你呢？");
         System.out.println(answer3);
     }
+
+    @Test
+    public void testV() {
+        String answer1 = separateChatAssistant.chat2(6, "我是环环");
+        System.out.println(answer1);
+
+        String answer2 = separateChatAssistant.chat2(6, "我是谁");
+        System.out.println(answer2);
+    }
 }

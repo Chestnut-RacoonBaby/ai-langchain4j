@@ -3,6 +3,7 @@ package com.ai.langchain4j.assistant;
 import dev.langchain4j.service.MemoryId;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
+import dev.langchain4j.service.V;
 import dev.langchain4j.service.spring.AiService;
 import dev.langchain4j.service.spring.AiServiceWiringMode;
 
@@ -34,4 +35,15 @@ public interface SeparateChatAssistant {
     @SystemMessage(fromResource = "my-prompt-template.txt")
 //    @SystemMessage("你是我的好朋友，请用东北话回答问题。今天是{{current_date}}")
     String chat(@MemoryId int memoryId, @UserMessage String userMessage);
+
+    /**
+     * 隔离聊天消息
+     * 如果由多个参数，则必须使用@V指定占位符名字。如果只有一个参数，则可以不指定，使用默认的it即可。
+     *
+     * @param memoryId    聊天id
+     * @param userMessage 用户消息
+     * @return
+     */
+    @UserMessage("你是我的好朋友，请用粤语回答我的问题哦。{{message}}")
+    String chat2(@MemoryId int memoryId, @V("message") String userMessage);
 }
