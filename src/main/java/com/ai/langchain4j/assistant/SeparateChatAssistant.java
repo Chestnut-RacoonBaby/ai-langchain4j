@@ -19,7 +19,9 @@ import dev.langchain4j.service.spring.AiServiceWiringMode;
         // 这个beanName是从配置类（MemoryChatAssistantConfig）中获取的
         chatMemory = "chatMemory",
         // 这个beanName是从配置类（SeparateChatAssistantConfig）中获取的
-        chatMemoryProvider = "chatMemoryProvider"
+        chatMemoryProvider = "chatMemoryProvider",
+        // 配置工具
+        tools = "calculatorTools"
 )
 public interface SeparateChatAssistant {
 

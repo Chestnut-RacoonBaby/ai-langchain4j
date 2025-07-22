@@ -19,7 +19,7 @@ public class ToolsTest {
 
     @Test
     public void testCalculatorTools() {
-        String answer = separateChatAssistant.chat(8, "请帮我计算2+2等于几，顺便计算一下2334343的平方根是多少？");
+        String answer = separateChatAssistant.chat(9, "请帮我计算2+2等于几，顺便计算一下2334343的平方根是多少？");
         System.out.println(answer);
     }
 }
