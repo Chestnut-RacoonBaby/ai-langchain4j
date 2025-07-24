@@ -16,7 +16,9 @@ import dev.langchain4j.service.spring.AiServiceWiringMode;
         wiringMode = AiServiceWiringMode.EXPLICIT,
         chatModel = "qwenChatModel",
         // 这个beanName是从配置类（XiaozhiAgentConfig）中获取的
-        chatMemoryProvider = "chatMemoryProviderXiaozhi"
+        chatMemoryProvider = "chatMemoryProviderXiaozhi",
+        // 配置工具
+        tools = "appointmentTools"
 )
 public interface XiaozhiAgent {
 
