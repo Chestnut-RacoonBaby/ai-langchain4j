@@ -110,6 +110,9 @@ public class RAGTest {
                 .ingest(document);
     }
 
+    /**
+     * 不同模型计算结果不一样
+     */
     @Test
     public void testTokenCount() {
         String text = "这是一个示例文本，用于测试 token 长度的计算。";
