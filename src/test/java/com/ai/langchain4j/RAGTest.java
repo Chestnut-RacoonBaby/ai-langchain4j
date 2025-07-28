@@ -3,6 +3,7 @@ package com.ai.langchain4j;
 import dev.langchain4j.data.document.Document;
 import dev.langchain4j.data.document.loader.FileSystemDocumentLoader;
 import dev.langchain4j.data.document.parser.TextDocumentParser;
+import dev.langchain4j.data.document.parser.apache.pdfbox.ApachePdfBoxDocumentParser;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -38,5 +39,17 @@ public class RAGTest {
         // 从一个目录及其子目录中加载所有文档
         List<Document> documents3 = FileSystemDocumentLoader
                 .loadDocumentsRecursively("E:/knowledge", new TextDocumentParser());
+    }
+
+    /**
+     * 解析PDF
+     */
+    @Test
+    public void testParsePDF() {
+        Document document = FileSystemDocumentLoader.loadDocument(
+                "E:/knowledge/医院信息.pdf",
+                new ApachePdfBoxDocumentParser()
+        );
+        System.out.println(document);
     }
 }
