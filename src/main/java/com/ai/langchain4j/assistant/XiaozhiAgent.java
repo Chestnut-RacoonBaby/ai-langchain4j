@@ -20,7 +20,8 @@ import dev.langchain4j.service.spring.AiServiceWiringMode;
         // 配置工具
         tools = "appointmentTools",
         // 配置向量数据库
-        contentRetriever = "contentRetrieverXiaozhi"
+//        contentRetriever = "contentRetrieverXiaozhi"
+        contentRetriever = "contentRetrieverXiaozhiPincone"
 )
 public interface XiaozhiAgent {
 
